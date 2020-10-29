@@ -11,7 +11,7 @@ export default class TaskControl extends Component {
                 {/* Task Search */}
                 <TaskSearchControl />
                 {/* Task Sort */}
-                <TaskSortControl onSort={this.props.onSort} sortBy={this.props.sortBy} sortValue={this.props.sortValue} />
+                <TaskSortControl />
             </div>
         );
     }

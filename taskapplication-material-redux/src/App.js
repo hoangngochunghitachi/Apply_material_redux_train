@@ -1,10 +1,13 @@
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from './actions/index';
 import './App.css';
 import TaskControl from './components/TaskControl';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
-import { connect } from 'react-redux';
-import * as actions from './actions/index'
+
 
 class App extends Component {
 
@@ -48,6 +51,8 @@ class App extends Component {
         <div className="text-center">
           <h1>Management Task Application</h1>
           <hr />
+          {/* <TrainMaterial />
+          <hr /> */}
         </div>
         <div className="row">
           <div className={isDisplayForm ? 'col-xs-4 col-sm-4 col-md-4 col-lg-4' : ''}>
@@ -55,9 +60,11 @@ class App extends Component {
             <TaskForm />
           </div>
           <div className={isDisplayForm ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
-            <button type="button" className="btn btn-primary" onClick={this.onToggleForm}>
+            {/* <ButtonAddTask /> */}
+            <Button variant="contained" color="primary" onClick={this.onToggleForm}><AddIcon />Add New Job</Button>
+            {/* <button type="button" className="btn btn-primary" onClick={this.onToggleForm}>
               <span className="fa fa-plus mr-5"></span>Add New Job
-                  </button>
+                  </button> */}
             {/* Task Control  */}
             <TaskControl />
             {/* Task List  */}

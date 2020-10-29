@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import * as actions from './../actions/index'
+import * as actions from './../actions/index';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './../styles/styles';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import Button from '@material-ui/core/Button';
 
 class TaskForm extends Component {
 
@@ -73,6 +80,7 @@ class TaskForm extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         if (!this.props.isDisplayForm) return null;
         return (
             <div className="panel panel-warning">
@@ -86,7 +94,7 @@ class TaskForm extends Component {
                     ></span>
                 </div>
                 <div className="panel-body">
-                    <form onSubmit={this.onSave}>
+                    {/* <form onSubmit={this.onSave}>
                         <div className="form-group">
                             <label>Name :</label>
                             <input type="text" className="form-control" name="name" value={this.state.name} onChange={this.onHandleChange} />
@@ -100,6 +108,23 @@ class TaskForm extends Component {
                         <div className="text-center">
                             <button type="submit" className="btn btn-warning">Save</button>&nbsp;
                             <button type="button" className="btn btn-danger" onClick={this.onClear}>Cancel</button>
+                        </div>
+                    </form>
+                    <hr /> */}
+                    <form className={classes.taskForm} autoComplete="off" onSubmit={this.onSave}>
+                        <TextField className={classes.textField} id="standard-basic" label="Standard" name="name" value={this.state.name} onChange={this.onHandleChange} /><br />
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="age-native-simple">Status</InputLabel>
+                            <Select native name="status" value={this.state.status} onChange={this.onHandleChange}>
+                                <option value={true}>Active</option>
+                                <option value={false}>Hide</option>
+                            </Select>
+                        </FormControl>
+                        <br />
+                        <br />
+                        <div className="text-center">
+                            <Button type="submit" variant="contained" color="primary">Save</Button>&nbsp;
+                            <Button variant="contained" color="primary" onClick={this.onClear}>Cancel</Button>
                         </div>
                     </form>
                 </div>
@@ -126,4 +151,4 @@ const mapDispatchToProps = (dispatch, props) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(TaskForm));
