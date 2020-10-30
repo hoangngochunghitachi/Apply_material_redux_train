@@ -35,7 +35,20 @@ const styles = (theme) => ({
         // width: 650,
     },
     tableHead: {
-        // fontSize: 15
+        fontWeight: "bold",
+        fontSize: 15,
+    },
+    tableCell: {
+        fontSize: 15,
+    },
+    btnSort: {
+        fontSize: 15,
+        fontWeight: "bold",
+        backgroundColor: "#0062cc",
+        color: "white",
+        "&:hover": {
+            backgroundColor: "#0062cc"
+        }
     }
 })
 

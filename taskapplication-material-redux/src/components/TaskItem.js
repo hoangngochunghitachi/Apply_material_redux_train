@@ -25,13 +25,14 @@ class TaskItem extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         const { task, index } = this.props;
         return (
             <TableRow>
-                <TableCell align="right">{index + 1}</TableCell>
-                <TableCell align="right">{task.name}</TableCell>
-                <TableCell align="right"><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
-                <TableCell align="right">
+                <TableCell align="center" className={classes.tableCell} >{index + 1}</TableCell>
+                <TableCell align="center" className={classes.tableCell}>{task.name}</TableCell>
+                <TableCell align="center" className={classes.tableCell}><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
+                <TableCell align="center" className={classes.tableCell}>
                     <Button type="submit" variant="contained" color="primary" onClick={this.onUpdate}>Edit</Button>&nbsp;
                     <Button variant="contained" color="secondary" onClick={this.onDelete}>Delete</Button>
                 </TableCell>

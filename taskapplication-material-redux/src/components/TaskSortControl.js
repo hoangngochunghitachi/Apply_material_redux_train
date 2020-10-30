@@ -40,10 +40,11 @@ class TaskSortControl extends Component {
 
 
     render() {
+        const { classes } = this.props;
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div>
-                    <Button aria-controls="simple-menu" aria-haspopup="true" color="primary" onClick={this.handleClick}>Sort<ArrowDropDownIcon /></Button>
+                    <Button className={classes.btnSort} onClick={this.handleClick}>Sort<ArrowDropDownIcon /></Button>
                     <Menu id="simple-menu" anchorEl={this.state.anchorEl} keepMounted open={Boolean(this.state.anchorEl)} onClose={this.handleClose}>
                         <MenuItem onClick={() => this.onClick('name', 1)} className={(this.props.sort.by === 'name' && this.props.sort.value === 1) ? 'sort_selected' : ''}>Name A-Z</MenuItem>
                         <MenuItem onClick={() => this.onClick('name', -1)} className={(this.props.sort.by === 'name' && this.props.sort.value === -1) ? 'sort_selected' : ''}>Name Z-A</MenuItem>

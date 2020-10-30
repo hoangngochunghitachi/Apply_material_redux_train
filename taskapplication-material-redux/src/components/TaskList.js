@@ -85,27 +85,27 @@ class TaskList extends Component {
                     <TableContainer component={Paper}>
                         <Table className={classes.table} size="small">
                             <TableHead>
-                                <TableRow>
-                                    <TableCell align="right">Index</TableCell>
-                                    <TableCell align="right">Name</TableCell>
-                                    <TableCell align="right">Status</TableCell>
-                                    <TableCell align="right">Action</TableCell>
+                                <TableRow >
+                                    <TableCell align="center" className={classes.tableHead}>Index</TableCell>
+                                    <TableCell align="center" className={classes.tableHead}>Name</TableCell>
+                                    <TableCell align="center" className={classes.tableHead}>Status</TableCell>
+                                    <TableCell align="center" className={classes.tableHead}>Action</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell align="right"></TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center"></TableCell>
+                                    <TableCell align="center">
                                         <TextField id="standard-basic" label="Name" InputProps={{ classes: { input: classes.textField } }} name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
                                     </TableCell>
-                                    <TableCell align="right">
+                                    <TableCell align="center">
                                         <Select className={classes.selectStatus} native name="filterStatus" value={this.state.filterStatus} onChange={this.onHandleChange}>
                                             <option value="-1">All</option>
                                             <option value="1">Active</option>
                                             <option value="0">Hide</option>
                                         </Select>
                                     </TableCell>
-                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="center"></TableCell>
                                 </TableRow>
                                 {elmTasks}
                             </TableBody>
