@@ -1,8 +1,19 @@
 
+import Paper from '@material-ui/core/Paper';
+import Select from '@material-ui/core/Select';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TextField from '@material-ui/core/TextField';
 import React, { Component } from "react";
-import TaskItem from "./TaskItem";
 import { connect } from 'react-redux';
-import * as actions from './../actions/index'
+import * as actions from './../actions/index';
+import styles from './../styles/styles';
+import TaskItem from "./TaskItem";
 
 class TaskList extends Component {
 
@@ -30,6 +41,7 @@ class TaskList extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         let { tasks, filterTable, keyword, sort } = this.props;
         if (filterTable.name) {
             tasks = tasks.filter((task) => {
@@ -70,35 +82,35 @@ class TaskList extends Component {
         return (
             <div className="row mt-15">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <table className="table table-bordered table-hover mt-15">
-                        <thead>
-                            <tr>
-                                <th className="text-center">Index</th>
-                                <th className="text-center">Name</th>
-                                <th className="text-center">Status</th>
-                                <th className="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <input type="text" className="form-control" name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
-                                </td>
-                                <td>
-                                    <select className="form-control" name="filterStatus" value={this.state.filterStatus} onChange={this.onHandleChange}>
-                                        <option value="-1">All</option>
-                                        <option value="0">Hide</option>
-                                        <option value="1">Active</option>
-                                    </select>
-                                </td>
-                                <td></td>
-                            </tr>
-                            {/* Task Item  */}
-                            {/* <TaskItem /> */}
-                            {elmTasks}
-                        </tbody>
-                    </table>
+                    <TableContainer component={Paper}>
+                        <Table className={classes.table} size="small">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align="right">Index</TableCell>
+                                    <TableCell align="right">Name</TableCell>
+                                    <TableCell align="right">Status</TableCell>
+                                    <TableCell align="right">Action</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                <TableRow>
+                                    <TableCell align="right"></TableCell>
+                                    <TableCell align="right">
+                                        <TextField id="standard-basic" label="Name" InputProps={{ classes: { input: classes.textField } }} name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
+                                    </TableCell>
+                                    <TableCell align="right">
+                                        <Select className={classes.selectStatus} native name="filterStatus" value={this.state.filterStatus} onChange={this.onHandleChange}>
+                                            <option value="-1">All</option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Hide</option>
+                                        </Select>
+                                    </TableCell>
+                                    <TableCell align="right"></TableCell>
+                                </TableRow>
+                                {elmTasks}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
                 </div>
             </div>
         );
@@ -121,4 +133,4 @@ const mapDispatchToProps = (dispatch, props) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskList); // connect(mapStateToProps, mapDispatchToProps)(TaskList)
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(TaskList));

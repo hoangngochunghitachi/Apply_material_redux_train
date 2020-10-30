@@ -8,6 +8,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 class TaskForm extends Component {
 
@@ -94,28 +95,11 @@ class TaskForm extends Component {
                     ></span>
                 </div>
                 <div className="panel-body">
-                    {/* <form onSubmit={this.onSave}>
-                        <div className="form-group">
-                            <label>Name :</label>
-                            <input type="text" className="form-control" name="name" value={this.state.name} onChange={this.onHandleChange} />
-                        </div>
-                        <label>Status :</label>
-                        <select className="form-control" required="required" name="status" value={this.state.status} onChange={this.onHandleChange}>
-                            <option value={true}>Active</option>
-                            <option value={false}>Hide</option>
-                        </select>
-                        <br />
-                        <div className="text-center">
-                            <button type="submit" className="btn btn-warning">Save</button>&nbsp;
-                            <button type="button" className="btn btn-danger" onClick={this.onClear}>Cancel</button>
-                        </div>
-                    </form>
-                    <hr /> */}
                     <form className={classes.taskForm} autoComplete="off" onSubmit={this.onSave}>
-                        <TextField className={classes.textField} id="standard-basic" label="Standard" name="name" value={this.state.name} onChange={this.onHandleChange} /><br />
+                        <TextField id="standard-basic" label={<Typography variant="headline" component="h6"> Name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="name" value={this.state.name} onChange={this.onHandleChange} />
                         <FormControl className={classes.formControl}>
-                            <InputLabel htmlFor="age-native-simple">Status</InputLabel>
-                            <Select native name="status" value={this.state.status} onChange={this.onHandleChange}>
+                            <InputLabel htmlFor="age-native-simple" className={classes.lblStatus}>Status</InputLabel>
+                            <Select className={classes.selectStatus} native name="status" value={this.state.status} onChange={this.onHandleChange}>
                                 <option value={true}>Active</option>
                                 <option value={false}>Hide</option>
                             </Select>
@@ -123,8 +107,8 @@ class TaskForm extends Component {
                         <br />
                         <br />
                         <div className="text-center">
-                            <Button type="submit" variant="contained" color="primary">Save</Button>&nbsp;
-                            <Button variant="contained" color="primary" onClick={this.onClear}>Cancel</Button>
+                            <Button type="submit" variant="contained" color="primary" >Save</Button>&nbsp;
+                            <Button variant="contained" color="secondary" onClick={this.onClear}>Cancel</Button>
                         </div>
                     </form>
                 </div>

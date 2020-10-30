@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import * as actions from './../actions/index'
+import * as actions from './../actions/index';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Button from '@material-ui/core/Button';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './../styles/styles';
 
 class TaskItem extends Component {
 
@@ -21,24 +27,15 @@ class TaskItem extends Component {
     render() {
         const { task, index } = this.props;
         return (
-            <tr>
-                <td>{index + 1}</td>
-                <td>{task.name}</td>
-                <td className="text-center">
-                    <span className={task.status ? 'label label-success' : 'label label-danger'} onClick={this.onUpdateStatus}>
-                        {task.status ? 'Active' : 'Hide'}
-                    </span>
-                </td>
-                <td className="text-center">
-                    <button type="button" className="btn btn-warning" onClick={this.onUpdate}>
-                        <span className="fa fa-pencil mr-5"></span>Edit
-                    </button>
-                    &nbsp;
-                    <button type="button" className="btn btn-danger" onClick={this.onDelete}>
-                        <span className="fa fa-trash mr-5"></span>Delete
-                    </button>
-                </td>
-            </tr>
+            <TableRow>
+                <TableCell align="right">{index + 1}</TableCell>
+                <TableCell align="right">{task.name}</TableCell>
+                <TableCell align="right"><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
+                <TableCell align="right">
+                    <Button type="submit" variant="contained" color="primary" onClick={this.onUpdate}>Edit</Button>&nbsp;
+                    <Button variant="contained" color="secondary" onClick={this.onDelete}>Delete</Button>
+                </TableCell>
+            </TableRow>
         );
     }
 }
@@ -69,4 +66,4 @@ const mapDispatchToProps = (dispatch, props) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskItem);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(TaskItem));

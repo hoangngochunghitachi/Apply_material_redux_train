@@ -1,14 +1,41 @@
 const styles = (theme) => ({
     taskForm: {
-        // margin: theme.spacing(1),
-        // width: '100ch',
+        width: '80%',
     },
     textField: {
-        with: '200ch'
+        // margin: theme.spacing(1),
+        width: '100%',
+        fontSize: 15
     },
     formControl: {
-        // margin: theme.spacing(1),
-        // minWidth: 120,
+        marginTop: theme.spacing(1),
+        width: '100%',
+    },
+    taskSearchControl: {
+        padding: '2px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+    },
+    inputTaskSearch: {
+        marginLeft: theme.spacing(1),
+        flex: 1,
+        fontSize: 17
+    },
+    iconButton: {
+        padding: 10,
+    },
+    lblStatus: {
+        fontSize: 17
+    },
+    selectStatus: {
+        fontSize: 15
+    },
+    table: {
+        // width: 650,
+    },
+    tableHead: {
+        // fontSize: 15
     }
 })
 

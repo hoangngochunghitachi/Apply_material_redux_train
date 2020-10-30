@@ -1,42 +1,55 @@
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import { withStyles } from '@material-ui/core/styles';
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as actions from './../actions/index';
+import styles from './../styles/styles';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 class TaskSortControl extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            anchorEl: null
+        }
+    }
 
     onClick = (sortBy, sortValue) => {
         this.props.onSort({
             by: sortBy,
             value: sortValue
         });
+        this.handleClose();
     }
+
+    handleClick = (event) => {
+        this.setState({
+            ...this.state.anchorEl,
+            anchorEl: event.currentTarget
+        });
+    };
+
+    handleClose = () => {
+        this.setState({
+            anchorEl: null
+        });
+    };
+
 
     render() {
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <div className="dropdown">
-                    <button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        Sort <span className="fa fa-caret-square-o-down ml-5"></span>
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        <li onClick={() => this.onClick('name', 1)}>
-                            <a role="button" className={(this.props.sort.by === 'name' && this.props.sort.value === 1) ? 'sort_selected' : ''}>
-                                <span className="fa fa-sort-alpha-asc pr-5">
-                                    Name A-Z
-                                </span>
-                            </a>
-                        </li>
-                        <li onClick={() => this.onClick('name', -1)}>
-                            <a role="button" className={(this.props.sort.by === 'name' && this.props.sort.value === -1) ? 'sort_selected' : ''}>
-                                <span className="fa fa-sort-alpha-desc pr-5">
-                                    Name Z-A
-                                                </span>
-                            </a>
-                        </li>
-                        <li role="separator" className="divider"></li>
-                        <li onClick={() => this.onClick('status', 1)}><a role="button" className={(this.props.sort.by === 'status' && this.props.sort.value === 1) ? 'sort_selected' : ''}>Status active</a></li>
-                        <li onClick={() => this.onClick('status', -1)}><a role="button" className={(this.props.sort.by === 'status' && this.props.sort.value === -1) ? 'sort_selected' : ''}>Status hide</a></li>
-                    </ul>
+                <div>
+                    <Button aria-controls="simple-menu" aria-haspopup="true" color="primary" onClick={this.handleClick}>Sort<ArrowDropDownIcon /></Button>
+                    <Menu id="simple-menu" anchorEl={this.state.anchorEl} keepMounted open={Boolean(this.state.anchorEl)} onClose={this.handleClose}>
+                        <MenuItem onClick={() => this.onClick('name', 1)} className={(this.props.sort.by === 'name' && this.props.sort.value === 1) ? 'sort_selected' : ''}>Name A-Z</MenuItem>
+                        <MenuItem onClick={() => this.onClick('name', -1)} className={(this.props.sort.by === 'name' && this.props.sort.value === -1) ? 'sort_selected' : ''}>Name Z-A</MenuItem>
+                        <MenuItem onClick={() => this.onClick('status', 1)} className={(this.props.sort.by === 'status' && this.props.sort.value === 1) ? 'sort_selected' : ''}>Status active</MenuItem>
+                        <MenuItem onClick={() => this.onClick('status', -1)} className={(this.props.sort.by === 'status' && this.props.sort.value === -1) ? 'sort_selected' : ''}>Status hide</MenuItem>
+                    </Menu>
                 </div>
             </div>
         );
@@ -57,4 +70,4 @@ const mapDispatchToProps = (dispatch, props) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskSortControl);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(TaskSortControl));

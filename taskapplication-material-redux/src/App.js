@@ -11,10 +11,6 @@ import TaskList from './components/TaskList';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   onToggleForm = () => {
     let { taskEditting } = this.props;
     if (taskEditting && taskEditting.id !== '') {

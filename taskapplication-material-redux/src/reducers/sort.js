@@ -8,7 +8,6 @@ let initalState = {
 const appReducer = (state = initalState, action) => {
     switch (action.type) {
         case types.SORT:
-            console.log(action);
             return {
                 by: action.sort.by,
                 value: action.sort.value
