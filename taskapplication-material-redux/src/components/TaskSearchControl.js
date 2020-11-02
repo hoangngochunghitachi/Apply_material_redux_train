@@ -1,11 +1,12 @@
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from "@material-ui/core/InputAdornment";
+import { withStyles } from '@material-ui/core/styles';
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
+import SearchIcon from '@material-ui/icons/Search';
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as actions from './../actions/index';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import { withStyles } from '@material-ui/core/styles';
 import styles from './../styles/styles';
 
 class TaskSearchControl extends Component {
@@ -32,10 +33,14 @@ class TaskSearchControl extends Component {
         const { classes } = this.props;
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <Paper component="form" className={classes.taskSearchControl}>
-                    <InputBase className={classes.inputTaskSearch} placeholder="Type keyword search" inputProps={{ 'aria-label': 'Type keyword search' }} name="keyword" value={keyword} onChange={this.onHandleChange} />
-                    <IconButton type="button" className={classes.iconButton} aria-label="search" onClick={this.onSearch}><SearchIcon /></IconButton>
-                </Paper>
+                <TextField label={<Typography className={classes.lblNote}> Type keyword search </Typography>}
+                    className={classes.textSearchControl} name="keyword" value={keyword} onChange={this.onHandleChange}
+                    InputProps={{ classes: { input: classes.textField } }, { endAdornment: (<IconButton onClick={this.onSearch}> <SearchIcon className={classes.iconSearch} /></IconButton>) }} />
+
+                {/* InputProps={{ classes: { input: classes.textField } }, {
+                        endAdornment: (<InputAdornment ><IconButton onClick={this.onSearch}>
+                            <SearchIcon className={classes.iconSearch} /></IconButton></InputAdornment>)
+                    }} /> */}
             </div>
         );
     }

@@ -2,11 +2,11 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
+import ArrowDropDownCircleOutlinedIcon from '@material-ui/icons/ArrowDropDownCircleOutlined';
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as actions from './../actions/index';
 import styles from './../styles/styles';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 class TaskSortControl extends Component {
 
@@ -44,7 +44,7 @@ class TaskSortControl extends Component {
         return (
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div>
-                    <Button className={classes.btnSort} onClick={this.handleClick}>Sort<ArrowDropDownIcon /></Button>
+                    <Button className={classes.btnSort} onClick={this.handleClick}>Sort<ArrowDropDownCircleOutlinedIcon className={classes.iconSort} /></Button>
                     <Menu id="simple-menu" anchorEl={this.state.anchorEl} keepMounted open={Boolean(this.state.anchorEl)} onClose={this.handleClose}>
                         <MenuItem onClick={() => this.onClick('name', 1)} className={(this.props.sort.by === 'name' && this.props.sort.value === 1) ? 'sort_selected' : ''}>Name A-Z</MenuItem>
                         <MenuItem onClick={() => this.onClick('name', -1)} className={(this.props.sort.by === 'name' && this.props.sort.value === -1) ? 'sort_selected' : ''}>Name Z-A</MenuItem>

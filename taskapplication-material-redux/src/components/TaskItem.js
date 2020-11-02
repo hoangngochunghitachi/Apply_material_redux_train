@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './../styles/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 class TaskItem extends Component {
 
@@ -33,10 +35,10 @@ class TaskItem extends Component {
                 <TableCell align="center" className={classes.tableCell}>{task.name}</TableCell>
                 <TableCell align="center" className={classes.tableCell}><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
                 <TableCell align="center" className={classes.tableCell}>
-                    <Button type="submit" variant="contained" color="primary" onClick={this.onUpdate}>Edit</Button>&nbsp;
-                    <Button variant="contained" color="secondary" onClick={this.onDelete}>Delete</Button>
+                    <Button type="submit" className={classes.btnAction} variant="contained" color="primary" onClick={this.onUpdate}><EditIcon className={classes.btnEdit} />Edit</Button>&nbsp;
+                <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onDelete}><DeleteIcon className={classes.btnEdit} />Delete</Button>
                 </TableCell>
-            </TableRow>
+            </TableRow >
         );
     }
 }

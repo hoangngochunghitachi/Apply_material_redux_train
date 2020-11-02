@@ -7,6 +7,8 @@ import './App.css';
 import TaskControl from './components/TaskControl';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './styles/styles';
 
 
 class App extends Component {
@@ -25,30 +27,18 @@ class App extends Component {
     });
   }
 
-  findIndex = (id) => {
-    const { tasks } = this.state;
-    let result = -1;
-    tasks.forEach((task, index) => {
-      if (task.id === id) {
-        result = index;
-      }
-    });
-    return result;
-  }
-
   onShowForm = () => {
     this.props.onShowForm();
   }
 
   render() {
+    let { classes } = this.props;
     let isDisplayForm = this.props.isDisplayForm;
     return (
       <div className="container">
         <div className="text-center">
-          <h1>Management Task Application</h1>
+          <h2>Management Task Application</h2>
           <hr />
-          {/* <TrainMaterial />
-          <hr /> */}
         </div>
         <div className="row">
           <div className={isDisplayForm ? 'col-xs-4 col-sm-4 col-md-4 col-lg-4' : ''}>
@@ -57,10 +47,7 @@ class App extends Component {
           </div>
           <div className={isDisplayForm ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
             {/* <ButtonAddTask /> */}
-            <Button variant="contained" color="primary" onClick={this.onToggleForm}><AddIcon />Add New Job</Button>
-            {/* <button type="button" className="btn btn-primary" onClick={this.onToggleForm}>
-              <span className="fa fa-plus mr-5"></span>Add New Job
-                  </button> */}
+            <Button variant="contained" className={classes.btnAddJob} color="primary" onClick={this.onToggleForm}><AddIcon className={classes.iconAddJob} />Add New Job</Button>
             {/* Task Control  */}
             <TaskControl />
             {/* Task List  */}
@@ -95,4 +82,4 @@ const mapDispatchToProps = (dispatch, props) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(App));

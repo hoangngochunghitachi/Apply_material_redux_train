@@ -107,8 +107,8 @@ class TaskForm extends Component {
                         <br />
                         <br />
                         <div className="text-center">
-                            <Button type="submit" variant="contained" color="primary" >Save</Button>&nbsp;
-                            <Button variant="contained" color="secondary" onClick={this.onClear}>Cancel</Button>
+                            <Button type="submit" className={classes.btnAction} variant="contained" color="primary" >Save</Button>&nbsp;
+                            <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onClear}>Cancel</Button>
                         </div>
                     </form>
                 </div>
