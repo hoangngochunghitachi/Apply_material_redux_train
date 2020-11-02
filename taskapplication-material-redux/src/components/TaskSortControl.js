@@ -42,7 +42,7 @@ class TaskSortControl extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 mt-27">
                 <div>
                     <Button className={classes.btnSort} onClick={this.handleClick}>Sort<ArrowDropDownCircleOutlinedIcon className={classes.iconSort} /></Button>
                     <Menu id="simple-menu" anchorEl={this.state.anchorEl} keepMounted open={Boolean(this.state.anchorEl)} onClose={this.handleClose}>
