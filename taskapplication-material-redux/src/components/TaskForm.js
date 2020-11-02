@@ -89,8 +89,8 @@ class TaskForm extends Component {
                 <div className="panel-heading">
                     <h3 className="panel-title">
                         {!this.state.id ? 'Add Job' : 'Update Job'}
+                        <CancelSharpIcon className={classes.iconCloseForm} onClick={this.onExitForm} />
                     </h3>
-                    <CancelSharpIcon className={classes.iconCloseForm} onClick={this.onExitForm} />
                     {/* <span
                         className="fa fa-times-circle text-right"
                         onClick={this.onExitForm}
