@@ -41,11 +41,11 @@ class App extends Component {
           <hr />
         </div>
         <div className="row">
-          <div className={isDisplayForm ? 'col-xs-4 col-sm-4 col-md-4 col-lg-4' : ''}>
+          <div className={isDisplayForm ? 'col-xs-12 col-sm-4 col-md-4 col-lg-4' : ''}>
             {/* Task Form */}
             <TaskForm />
           </div>
-          <div className={isDisplayForm ? 'col-xs-8 col-sm-8 col-md-8 col-lg-8' : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
+          <div className={isDisplayForm ? 'col-xs-12 col-sm-8 col-md-8 col-lg-8' : 'col-xs-12 col-sm-12 col-md-12 col-lg-12'}>
             {/* <ButtonAddTask /> */}
             <Button variant="contained" className={classes.btnAddJob} color="primary" onClick={this.onToggleForm}><AddIcon className={classes.iconAddJob} />Add New Job</Button>
             {/* Task Control  */}
