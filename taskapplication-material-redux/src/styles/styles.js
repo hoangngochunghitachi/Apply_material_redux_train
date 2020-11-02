@@ -3,8 +3,6 @@ const styles = (theme) => ({
         width: '80%',
     },
     textField: {
-        // margin: theme.spacing(1),
-        // width: '100%',
         fontSize: 15
     },
     formControl: {
@@ -12,9 +10,6 @@ const styles = (theme) => ({
         width: '100%',
     },
     textSearchControl: {
-        // padding: '2px 4px',
-        // display: 'flex',
-        // alignItems: 'center',
         width: '100%',
     },
     inputTaskSearch: {
@@ -31,17 +26,17 @@ const styles = (theme) => ({
         fontSize: 17
     },
     selectStatus: {
-        fontSize: 15
-    },
-    table: {
-        // width: 650,
+        fontSize: 15,
+        fontFamily: "FontAwesome"
     },
     tableHead: {
         fontWeight: "bold",
         fontSize: 15,
+        fontFamily: "FontAwesome"
     },
     tableCell: {
         fontSize: 15,
+        fontFamily: "FontAwesome"
     },
     btnSort: {
         fontSize: 12,
@@ -50,11 +45,13 @@ const styles = (theme) => ({
         color: "white",
         "&:hover": {
             backgroundColor: "#0062cc"
-        }
+        },
+        fontFamily: "FontAwesome"
     },
     btnAddJob: {
         fontSize: 12,
         paddingLeft: theme.spacing(1),
+        fontFamily: "FontAwesome"
     },
     iconAddJob: {
         fontSize: 20,
@@ -65,14 +62,24 @@ const styles = (theme) => ({
         fontSize: 15,
         marginLeft: 5,
     },
-    btnEdit: {
+    iconAction: {
         marginRight: 5,
     },
     btnAction: {
         fontSize: 10,
+        fontFamily: "FontAwesome"
     },
     lblNote: {
         fontSize: 17,
+        fontFamily: "FontAwesome"
+    },
+    iconCloseForm: {
+        cursor: "pointer",
+        "&:hover": {
+            color: "red"
+        },
+        float: "right",
+        // textAlign: "center"
     }
 })
 

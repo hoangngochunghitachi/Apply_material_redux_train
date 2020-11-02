@@ -9,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as actions from './../actions/index';
@@ -83,7 +84,7 @@ class TaskList extends Component {
             <div className="row mt-15">
                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <TableContainer component={Paper}>
-                        <Table className={classes.table} size="small">
+                        <Table size="small">
                             <TableHead>
                                 <TableRow >
                                     <TableCell align="center" className={classes.tableHead}>Index</TableCell>
@@ -96,7 +97,7 @@ class TaskList extends Component {
                                 <TableRow>
                                     <TableCell align="center"></TableCell>
                                     <TableCell align="center">
-                                        <TextField id="standard-basic" label="Name" InputProps={{ classes: { input: classes.textField } }} name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
+                                        <TextField id="standard-basic" label={<Typography className={classes.lblNote}> Type name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
                                     </TableCell>
                                     <TableCell align="center">
                                         <Select className={classes.selectStatus} native name="filterStatus" value={this.state.filterStatus} onChange={this.onHandleChange}>

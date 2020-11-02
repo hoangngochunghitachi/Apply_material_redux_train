@@ -9,6 +9,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CancelSharpIcon from '@material-ui/icons/CancelSharp';
 
 class TaskForm extends Component {
 
@@ -89,14 +90,15 @@ class TaskForm extends Component {
                     <h3 className="panel-title">
                         {!this.state.id ? 'Add Job' : 'Update Job'}
                     </h3>
-                    <span
+                    <CancelSharpIcon className={classes.iconCloseForm} onClick={this.onExitForm} />
+                    {/* <span
                         className="fa fa-times-circle text-right"
                         onClick={this.onExitForm}
-                    ></span>
+                    ></span> */}
                 </div>
                 <div className="panel-body">
                     <form className={classes.taskForm} autoComplete="off" onSubmit={this.onSave}>
-                        <TextField id="standard-basic" label={<Typography variant="headline" component="h6"> Name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="name" value={this.state.name} onChange={this.onHandleChange} />
+                        <TextField id="standard-basic" label={<Typography className={classes.lblNote}> Name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="name" value={this.state.name} onChange={this.onHandleChange} />
                         <FormControl className={classes.formControl}>
                             <InputLabel htmlFor="age-native-simple" className={classes.lblStatus}>Status</InputLabel>
                             <Select className={classes.selectStatus} native name="status" value={this.state.status} onChange={this.onHandleChange}>

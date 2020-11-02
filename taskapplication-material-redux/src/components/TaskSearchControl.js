@@ -1,5 +1,4 @@
 import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from "@material-ui/core/InputAdornment";
 import { withStyles } from '@material-ui/core/styles';
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
