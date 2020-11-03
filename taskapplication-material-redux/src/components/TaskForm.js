@@ -10,6 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CancelSharpIcon from '@material-ui/icons/CancelSharp';
+import SweetAlert from 'sweetalert2-react';
 
 class TaskForm extends Component {
 
@@ -107,6 +108,12 @@ class TaskForm extends Component {
                         <div className="text-left">
                             <Button variant="contained" className={classes.btnAction} color="primary" type="submit">Save</Button>&nbsp;
                             <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onClear}>Cancel</Button>
+                            {/* <SweetAlert
+                                show={true}
+                                title="Demo"
+                                text="SweetAlert in React"
+
+                            /> */}
                         </div>
                     </form>
                 </div>
