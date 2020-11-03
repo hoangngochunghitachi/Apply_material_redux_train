@@ -80,6 +80,16 @@ const styles = (theme) => ({
         margin: 1,
         width: 30
     },
+    btnActionEdit: {
+        fontSize: 10,
+        fontFamily: "FontAwesome",
+        margin: 1,
+        width: 30,
+        backgroundColor: "#f57c00",
+        "&:hover": {
+            backgroundColor: "#ff9800"
+        },
+    },
     lblNote: {
         fontSize: 17,
         fontFamily: "FontAwesome"
@@ -90,7 +100,6 @@ const styles = (theme) => ({
             color: "red"
         },
         float: "right",
-        // textAlign: "center"
     },
     btnSearch: {
         marginLeft: "auto"

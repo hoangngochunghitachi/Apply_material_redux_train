@@ -35,8 +35,8 @@ class TaskItem extends Component {
                 <TableCell align="center" className={classes.tableCell}>{task.name}</TableCell>
                 <TableCell align="center" className={classes.tableCell}><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
                 <TableCell align="center" className={classes.tableCell}>
-                    <Button type="submit" className={classes.btnAction} variant="contained" color="primary" onClick={this.onUpdate}><EditIcon className={classes.iconAction} />Edit</Button>&nbsp;
-                <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onDelete}><DeleteIcon className={classes.iconAction} />Delete</Button>
+                    <Button variant="contained" className={classes.btnActionEdit} color="primary" onClick={this.onUpdate}><EditIcon className={classes.iconAction} />Edit</Button>&nbsp;
+                    <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onDelete}><DeleteIcon className={classes.iconAction} />Delete</Button>
                 </TableCell>
             </TableRow >
         );
