@@ -9,6 +9,8 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as actions from './../actions/index';
 import styles from './../styles/styles';
+import Tooltip from '@material-ui/core/Tooltip';
+import Typography from '@material-ui/core/Typography';
 
 class TaskItem extends Component {
 
@@ -32,7 +34,11 @@ class TaskItem extends Component {
         return (
             <TableRow>
                 <TableCell align="center" className={classes.tableCell} >{index + 1}</TableCell>
-                <TableCell align="center" className={classes.tableCell}><p className={classes.tableCellName}>{task.name}</p></TableCell>
+                <TableCell align="center" className={classes.tableCell}>
+                    <Tooltip title={<Typography className={classes.lblNote}> {task.name} </Typography>}>
+                        <p className={classes.tableCellName}>{task.name}</p>
+                    </Tooltip>
+                </TableCell>
                 <TableCell align="center" className={classes.tableCell}><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
                 <TableCell align="center" className={classes.tableCell}>
                     <Button variant="contained" className={classes.btnActionEdit} color="primary" onClick={this.onUpdate}><EditIcon className={classes.iconAction} />Edit</Button>&nbsp;
