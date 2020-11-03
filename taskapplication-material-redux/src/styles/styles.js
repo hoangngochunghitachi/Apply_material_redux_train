@@ -41,10 +41,18 @@ const styles = (theme) => ({
         fontSize: 15,
         fontFamily: "FontAwesome"
     },
+    tableCellName: {
+        margin: "auto",
+        fontSize: 15,
+        fontFamily: "FontAwesome",
+        whiteSpace: "nowrap",
+        width: 100,
+        overflow: "hidden",
+        textOverflow: "ellipsis"
+    },
     tableCell: {
         fontSize: 15,
         fontFamily: "FontAwesome",
-        // padding: 1
     },
     btnSort: {
         fontSize: 12,

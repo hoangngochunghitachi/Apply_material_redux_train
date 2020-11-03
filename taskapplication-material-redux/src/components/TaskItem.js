@@ -1,14 +1,14 @@
+import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import * as actions from './../actions/index';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import Button from '@material-ui/core/Button';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import { withStyles } from '@material-ui/core/styles';
 import styles from './../styles/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
 
 class TaskItem extends Component {
 
@@ -32,7 +32,7 @@ class TaskItem extends Component {
         return (
             <TableRow>
                 <TableCell align="center" className={classes.tableCell} >{index + 1}</TableCell>
-                <TableCell align="center" className={classes.tableCell}>{task.name}</TableCell>
+                <TableCell align="center" className={classes.tableCell}><p className={classes.tableCellName}>{task.name}</p></TableCell>
                 <TableCell align="center" className={classes.tableCell}><CheckCircleIcon color={task.status ? 'primary' : 'disabled'} onClick={this.onUpdateStatus} /></TableCell>
                 <TableCell align="center" className={classes.tableCell}>
                     <Button variant="contained" className={classes.btnActionEdit} color="primary" onClick={this.onUpdate}><EditIcon className={classes.iconAction} />Edit</Button>&nbsp;
