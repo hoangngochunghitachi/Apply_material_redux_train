@@ -97,7 +97,7 @@ class TaskList extends Component {
                                 <TableRow>
                                     <TableCell align="center"></TableCell>
                                     <TableCell align="center">
-                                        <TextField id="standard-basic" label={<Typography className={classes.lblNote}> Type name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
+                                        <TextField label={<Typography className={classes.lblNote}> Name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="filterName" value={this.state.filterName} onChange={this.onHandleChange} />
                                     </TableCell>
                                     <TableCell align="center">
                                         <Select className={classes.selectStatus} native name="filterStatus" value={this.state.filterStatus} onChange={this.onHandleChange}>

@@ -91,14 +91,10 @@ class TaskForm extends Component {
                         {!this.state.id ? 'Add Job' : 'Update Job'}
                         <CancelSharpIcon className={classes.iconCloseForm} onClick={this.onExitForm} />
                     </h3>
-                    {/* <span
-                        className="fa fa-times-circle text-right"
-                        onClick={this.onExitForm}
-                    ></span> */}
                 </div>
                 <div className="panel-body">
                     <form className={classes.taskForm} autoComplete="off" onSubmit={this.onSave}>
-                        <TextField id="standard-basic" label={<Typography className={classes.lblNote}> Name </Typography>} InputProps={{ classes: { input: classes.textField } }} name="name" value={this.state.name} onChange={this.onHandleChange} />
+                        <TextField label={<Typography className={classes.lblNote}> Name </Typography>} className={classes.textForm} InputProps={{ classes: { input: classes.textField } }} name="name" value={this.state.name} onChange={this.onHandleChange} />
                         <FormControl className={classes.formControl}>
                             <InputLabel htmlFor="age-native-simple" className={classes.lblStatus}>Status</InputLabel>
                             <Select className={classes.selectStatus} native name="status" value={this.state.status} onChange={this.onHandleChange}>
@@ -108,8 +104,8 @@ class TaskForm extends Component {
                         </FormControl>
                         <br />
                         <br />
-                        <div className="text-center">
-                            <Button type="submit" className={classes.btnAction} variant="contained" color="primary" >Save</Button>&nbsp;
+                        <div className="text-left">
+                            <Button variant="contained" className={classes.btnAction} color="primary" >Save</Button>&nbsp;
                             <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onClear}>Cancel</Button>
                         </div>
                     </form>

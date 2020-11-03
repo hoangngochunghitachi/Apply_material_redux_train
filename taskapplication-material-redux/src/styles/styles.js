@@ -1,12 +1,16 @@
 const styles = (theme) => ({
     taskForm: {
-        width: '80%',
+        width: '100%',
     },
     textField: {
-        fontSize: 15
+        width: '80%',
+        fontSize: 15,
+    },
+    textForm: {
+        width: '80%',
     },
     formControl: {
-        marginTop: theme.spacing(1),
+        marginTop: theme.spacing(3),
         width: '100%',
     },
     textSearchControl: {
@@ -20,14 +24,16 @@ const styles = (theme) => ({
     iconSearch: {
         // padding: 10,
         fontSize: 20,
-        color: "#0062cc"
+        color: "#0062cc",
     },
     lblStatus: {
         fontSize: 17
     },
     selectStatus: {
         fontSize: 15,
-        fontFamily: "FontAwesome"
+        fontFamily: "FontAwesome",
+        width: "50%",
+        marginTop: 16
     },
     tableHead: {
         fontWeight: "bold",
@@ -36,7 +42,8 @@ const styles = (theme) => ({
     },
     tableCell: {
         fontSize: 15,
-        fontFamily: "FontAwesome"
+        fontFamily: "FontAwesome",
+        // padding: 1
     },
     btnSort: {
         fontSize: 12,
@@ -63,11 +70,14 @@ const styles = (theme) => ({
         marginLeft: 5,
     },
     iconAction: {
-        marginRight: 5,
+        fontSize: 13,
+        marginRight: 2,
     },
     btnAction: {
         fontSize: 10,
-        fontFamily: "FontAwesome"
+        fontFamily: "FontAwesome",
+        margin: 1,
+        width: 30
     },
     lblNote: {
         fontSize: 17,
@@ -80,7 +90,10 @@ const styles = (theme) => ({
         },
         float: "right",
         // textAlign: "center"
-    }
+    },
+    // customInputSearch: {
+    //     display: "flex"
+    // }
 })
 
 export default styles;
