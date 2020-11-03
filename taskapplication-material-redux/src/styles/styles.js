@@ -5,6 +5,7 @@ const styles = (theme) => ({
     textField: {
         width: '80%',
         fontSize: 15,
+        fontFamily: "FontAwesome"
     },
     textForm: {
         width: '80%',
@@ -91,9 +92,9 @@ const styles = (theme) => ({
         float: "right",
         // textAlign: "center"
     },
-    // customInputSearch: {
-    //     display: "flex"
-    // }
+    btnSearch: {
+        marginLeft: "auto"
+    }
 })
 
 export default styles;

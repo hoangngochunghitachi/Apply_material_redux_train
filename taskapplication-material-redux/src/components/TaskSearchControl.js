@@ -34,12 +34,7 @@ class TaskSearchControl extends Component {
             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <TextField label={<Typography className={classes.lblNote}>Keyword</Typography>}
                     className={classes.textSearchControl} name="keyword" value={keyword} onChange={this.onHandleChange}
-                    InputProps={{ classes: { input: classes.textField } }, { endAdornment: (<IconButton onClick={this.onSearch}> <SearchIcon className={classes.iconSearch} /></IconButton>) }} />
-
-                {/* InputProps={{ classes: { input: classes.textField } }, {
-                        endAdornment: (<InputAdornment ><IconButton onClick={this.onSearch}>
-                            <SearchIcon className={classes.iconSearch} /></IconButton></InputAdornment>)
-                    }} /> */}
+                    InputProps={{ classes: { input: classes.textField }, endAdornment: (<IconButton className={classes.btnSearch} onClick={this.onSearch}> <SearchIcon className={classes.iconSearch} /></IconButton>) }} />
             </div>
         );
     }
