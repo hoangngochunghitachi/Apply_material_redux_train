@@ -10,7 +10,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CancelSharpIcon from '@material-ui/icons/CancelSharp';
-import SweetAlert from 'sweetalert2-react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import SweetAlert from 'sweetalert2-react';
+// import SweetAlert from 'react-bootstrap-sweetalert';
+// import { Alert, AlertTitle } from '@material-ui/lab';
 
 class TaskForm extends Component {
 
@@ -82,6 +86,12 @@ class TaskForm extends Component {
         });
     }
 
+    hideAlert = () => {
+        console.log("okkkkkk");
+    }
+
+    notify = () => toast("Wow so easy !");
+
     render() {
         const { classes } = this.props;
         if (!this.props.isDisplayForm) return null;
@@ -110,10 +120,23 @@ class TaskForm extends Component {
                             <Button variant="contained" className={classes.btnAction} color="secondary" onClick={this.onClear}>Cancel</Button>
                             {/* <SweetAlert
                                 show={true}
-                                title="Demo"
-                                text="SweetAlert in React"
+                                title="Question"
+                                text="Do you want to delete job?"
+                                icon="warning"
+                                showCancelButton={true}
+                                confirmButtonColor="#3085d6"
+                                cancelButtonColor="#d33"
+                                confirmButtonText="Yes"
 
                             /> */}
+                            {/* <SweetAlert warning title="Do you want to delete job ?" onConfirm={() => this.hideAlert} onCancel={this.hideAlert} /> */}
+                            {/* <Alert severity="success" color="info">
+                                This is a success alert — check it out!
+                            </Alert> */}
+                            {/* <div>
+                                <button onClick={this.notify}>Notify !</button>
+                                <ToastContainer />
+                            </div> */}
                         </div>
                     </form>
                 </div>
